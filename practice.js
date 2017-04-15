@@ -20,25 +20,38 @@ server.register(require('inert'), (err) => {
             }
         });
 
-        server.route({
-      method: 'GET',
-      path: '/css/{file*}',
-      handler: {
-        directory: {
-          path: './material-login-form/css'
+    server.route({
+    method: 'GET',
+    path: '/css/{file*}',
+    handler: {
+      directory: {
+        path: './material-login-form/css'
         }
       }
     })
 
-    server.route({
+
+server.route({
   method: 'GET',
   path: '/js/{file*}',
   handler: {
-    directory: {
-      path: './material-login-form/css'
+  directory: {
+    path: './material-login-form/js'
     }
   }
 })
+
+
+server.route({
+        method: 'GET',
+        path: '/go',
+        handler: function (request, reply) {
+          // return reply('helo');
+            reply.file('/Users/TILOOOR/Downloads/getout/getoutredo/App/gooey-menu/index.html');
+        }
+    });
+
+
 
 server.start((err) => {
 
